@@ -16,6 +16,11 @@ class Api::V1::LinksController < ApplicationController
     end
   end
 
+  def destroy
+    @link = Link.new(link_params)
+    @link.destroy
+  end
+
   private
 
   def link_params
