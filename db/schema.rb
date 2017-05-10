@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510154946) do
+ActiveRecord::Schema.define(version: 20170510191653) do
 
   create_table "links", force: :cascade do |t|
     t.text     "url",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parsed_items", force: :cascade do |t|
+    t.string   "tag_type"
+    t.text     "body"
+    t.integer  "link_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
