@@ -4,8 +4,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def show
-    @link = Link.find_by(params[:id]) || Link.find_by(params[:url])
-    render :show if !!@link
+    @link = Link.find_by(params[:id])
   end
 
   def create
