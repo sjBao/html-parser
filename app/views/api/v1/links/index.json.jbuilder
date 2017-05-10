@@ -1,1 +1,1 @@
-json.array! @links
+json.data @links
