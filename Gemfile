@@ -15,6 +15,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'sqlite3'
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
 end
 
 group :development do
