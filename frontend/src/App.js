@@ -5,19 +5,11 @@ import {
   Link
 } from 'react-router-dom';
 
+import Parser from './pages/Parser/Parser';
+import History from './pages/History/History';
+import ParsedInfo from './pages/Links/ParsedInfo';
+
 import './App.css';
-
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
-
-const History = () => (
-  <div>
-    <h2>History</h2>
-  </div>
-)
 
 const App = () => (
   <Router>
@@ -32,9 +24,9 @@ const App = () => (
       </ul>
 
       <hr/>
-
-      <Route exact path="/" component={Home} />
-      <Route exact path="/history" component={History} />
+      <Route exact path="/" component={ Parser } />
+      <Route path="/history" component={ History } />
+      <Route path="/links/:id" component={ ParsedInfo } />
     </div>
   </Router>
 )
