@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import browserHistory from 'react-router-dom';
 import { Form } from 'semantic-ui-react';
 
 class ParserForm extends Component {
@@ -23,7 +24,7 @@ class ParserForm extends Component {
     }).then(promise=> {
       return promise.text()
     }).then(response => {
-      location.href = `/links/${JSON.parse(response).data.id}`
+      browserHistory.push(`/links/${JSON.parse(response).data.id}`);
     })
   }
 
