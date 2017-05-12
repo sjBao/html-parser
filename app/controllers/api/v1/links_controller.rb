@@ -4,7 +4,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def show
-    @link = Link.find_by(params[:id])
+    @link = Link.find_by(id: params[:id])
   end
 
   def create
