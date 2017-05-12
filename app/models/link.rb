@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 class Link < ApplicationRecord
-  has_many :parsed_items
+  has_many :parsed_items, dependent: :destroy
   validates :url, :uniqueness => true
 
   def parse_content
