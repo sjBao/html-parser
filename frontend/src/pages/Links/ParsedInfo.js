@@ -27,7 +27,6 @@ class ParsedInfo extends Component {
       <Container>
         <Header as="h1" textAlign="center">Parsed Headers</Header>
         <hr/>
-        {this.props.match.url}
         {
           parsedContent.map(content => (
             <Card fluid key={content.id}>
