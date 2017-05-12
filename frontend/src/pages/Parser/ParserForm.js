@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import browserHistory from 'react-router-dom';
+import { Redirect } from 'react-router';
 import { Form } from 'semantic-ui-react';
 
 class ParserForm extends Component {
   state = {
-    url: ''
+    url: '',
+    redirect: false,
   }
 
   handleChange = (e) =>  {
@@ -14,6 +15,7 @@ class ParserForm extends Component {
   }
 
   handleSubmit = e => {
+    console.log(Redirect)
     e.preventDefault();
     let payload = JSON.stringify({ url: this.refs.urlInput.value });
     console.log(payload)
@@ -24,13 +26,13 @@ class ParserForm extends Component {
     }).then(promise=> {
       return promise.text()
     }).then(response => {
-      browserHistory.push(`/links/${JSON.parse(response).data.id}`);
+      this.setState({ redirect: `/links/${JSON.parse(response).data.id}` })
     })
   }
 
   render() {
-    const { url } = this.state
-    return(
+    let { url, redirect } = this.state
+    const form = () => (
       <Form onSubmit={ this.handleSubmit }>
         <Form.Field>
           <Form.Group>
@@ -44,6 +46,9 @@ class ParserForm extends Component {
           </Form.Group>
         </Form.Field>
       </Form>
+    )
+    return (
+        redirect ? <Redirect to={redirect} /> : form()
     )
   }
 }
