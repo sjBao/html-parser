@@ -9,10 +9,12 @@ class History extends Component {
   }
 
   componentWillMount = () => {
-    this.setState({
-      links : [{"id":1,"url":"https://medium.freecodecamp.com/stanford-just-abandoned-java-in-favor-of-javascript-for-its-intro-cs-course-fe40543e81d8","created_at":"2017-05-10T17:50:24.734Z","updated_at":"2017-05-10T17:50:24.734Z"},
-      {"id":2,"url":"https://medium.freecodecamp.com/stanford-just-abandoned-java-in-favor-of-javascript-for-its-intro-cs-course-fe40543e81d8","created_at":"2017-05-10T17:50:24.734Z","updated_at":"2017-05-10T17:50:24.734Z"},
-      {"id":3,"url":"https://medium.freecodecamp.com/stanford-just-abandoned-java-in-favor-of-javascript-for-its-intro-cs-course-fe40543e81d8","created_at":"2017-05-10T17:50:24.734Z","updated_at":"2017-05-10T17:50:24.734Z"}]
+    fetch('/api/v1/links.json').then( promise => {
+      return promise.text()
+    }).then(response =>{
+      this.setState({
+        links: JSON.parse(response).data
+      })
     })
   }
 
