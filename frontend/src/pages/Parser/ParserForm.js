@@ -13,10 +13,19 @@ class ParserForm extends Component {
   }
 
   handleSubmit = e => {
-    e.preventDefault()
-    this.setState({ url: ''});
-    window.location.href = '/links/1'
-  };
+    e.preventDefault();
+    let payload = JSON.stringify({ url: this.refs.urlInput.value });
+    console.log(payload)
+    fetch('/api/v1/links', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: payload
+    }).then(promise=> {
+      return promise.text()
+    }).then(response => {
+      location.href = `/links/${JSON.parse(response).data.id}`
+    })
+  }
 
   render() {
     const { url } = this.state
