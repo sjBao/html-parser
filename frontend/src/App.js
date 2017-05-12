@@ -2,7 +2,8 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 
 import Parser from './pages/Parser/Parser';
@@ -24,9 +25,11 @@ const App = () => (
       </ul>
 
       <hr/>
-      <Route exact path="/" component={ Parser } />
-      <Route path="/history" component={ History } />
-      <Route path="/links/:id" component={ ParsedInfo } />
+      <Switch>
+        <Route exact path="/" component={ Parser } />
+        <Route path="/history" component={ History } />
+        <Route path="/links/:id" component={ ParsedInfo } />
+      </Switch>
     </div>
   </Router>
 )
