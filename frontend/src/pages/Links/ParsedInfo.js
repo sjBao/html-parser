@@ -3,7 +3,6 @@ import {
   Header,
   Container,
   Card,
-  Icon,
 } from 'semantic-ui-react';
 
 class ParsedInfo extends Component {
