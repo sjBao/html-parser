@@ -14,3 +14,11 @@ clone the repository
 * `$ npm run build`
 
 After you've finish the set up you can run on your machine with `$ rake start`.  
+
+
+# API Endpoints
+`GET https://vast-inlet-80619.herokuapp.com/api/v1/links.json`
+`POST https://vast-inlet-80619.herokuapp.com/api/v1/links`
+`GET https://vast-inlet-80619.herokuapp.com/api/v1/links/:id.json`
+`PUT/PATCH https://vast-inlet-80619.herokuapp.com/api/v1/links/:id`
+`DELETE https://vast-inlet-80619.herokuapp.com/api/v1/links/:id`
