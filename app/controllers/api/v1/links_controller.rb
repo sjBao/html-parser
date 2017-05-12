@@ -30,7 +30,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def destroy
-    @link = Link.new(link_params)
+    @link = Link.find_by(id: params[:id])
     @link.destroy
   end
 

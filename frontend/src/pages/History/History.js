@@ -8,7 +8,7 @@ class History extends Component {
     links: []
   }
 
-  componentWillMount = () => {
+  updateLinks = () => {
     fetch('/api/v1/links.json').then( promise => {
       return promise.text()
     }).then(response =>{
@@ -18,6 +18,10 @@ class History extends Component {
     })
   }
 
+  componentWillMount = () => {
+    this.updateLinks();
+  }
+
   render() {
     let { links } = this.state;
     return (
@@ -25,7 +29,10 @@ class History extends Component {
         <Header as='h2' textAlign="center">Past Links</Header>
         <hr/>
         { links.map( link => (
-          <PastLink key={link.id} linkInfo={link} />
+          <PastLink
+            updateLinks={this.updateLinks}
+            key={link.id}
+            linkInfo={link} />
         ))}
       </Container>
     )
