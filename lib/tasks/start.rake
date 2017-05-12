@@ -1,6 +1,6 @@
 namespace :start do
   task :development do
-    exec 'forman -start -f Profile.dev'
+    exec 'foreman -start -f Profile.dev'
   end
 end
 
