@@ -18,7 +18,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def update
-    @link = Link.find_by(params[:id])
+    @link = Link.find_by(id: params[:id])
     if @link.update(link_params)
       @link.parsed_items = @link.parse_content.map do |content|
         @link.parsed_items.find_or_create_by(content)
@@ -37,6 +37,7 @@ class Api::V1::LinksController < ApplicationController
   private
 
   def link_params
+    p params
     params.require(:link).permit(:url)
   end
 end

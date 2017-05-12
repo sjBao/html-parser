@@ -15,10 +15,8 @@ class ParserForm extends Component {
   }
 
   handleSubmit = e => {
-    console.log(Redirect)
     e.preventDefault();
     let payload = JSON.stringify({ url: this.refs.urlInput.value });
-    console.log(payload)
     fetch('/api/v1/links', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
